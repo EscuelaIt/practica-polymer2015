@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<dom-module id="dw-movies-list">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <iron-ajax
+      id="ajaxlistado"
+      auto
+      url="http://localhost:3000/peliculas"
+      last-response="{{peliculas}}"
+    ></iron-ajax>
+    <h2>Películas del API</h2>
+    <template is="dom-repeat" items="{{peliculas}}">
+      <paper-card heading="{{item.nombre}}">
+        <div class="card-content">Esto es una película de género [[item.clasificacion]] dirigida por [[item.director]].</div>
+      </paper-card>
+    </template>
+
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'dw-movies-list',
+
+      properties: {
+        peliculas: {
+          type: Array,
+          value: function() { return []; }
+        }
+      },
+
+      actualizar: function() {
+        this.$.ajaxlistado.generateRequest();
+      }
+    });
+  })();
+  </script>
+</dom-module>

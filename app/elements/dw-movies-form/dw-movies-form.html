@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="dw-movies-form">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-button {
+        font-size: 1em;
+        margin-top: 15px;
+        background: green;
+        color: #fff;
+      }
+    </style>
+    <h2>Insertar película</h2>
+    <form is="iron-form" id="form" method="post" action="http://localhost:3000/peliculas/">
+      <paper-input name="nombre" label="Nombre"></paper-input>
+      <paper-input name="director" label="Director"></paper-input>
+      <br>
+      <iron-ajax
+        auto
+        last-response="{{clasificaciones}}"
+        url="http://localhost:3000/clasificaciones/"
+      ></iron-ajax>
+      <paper-dropdown-menu label="Clasificacion" name="clasificacion">
+        <paper-menu class="dropdown-content" attr-for-selected="value" id="menuclasificacion">
+          <template is="dom-repeat" items="{{clasificaciones}}">
+            <paper-item value="[[item.nombre]]">[[item.nombre]]</paper-item>
+          </template>
+        </paper-menu>
+      </paper-dropdown-menu>
+      <br>
+      <paper-button id="botonsubmit">Enviar</paper-button>
+    </form>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'dw-movies-form',
+
+      listeners: {
+        'botonsubmit.tap': 'enviar',
+        'form.iron-form-response': 'recibidaRespuesta'
+      },
+
+      properties: {
+        clasificaciones: {
+          type: Array
+        }
+      },
+      ready: function() {
+        this.$.menuclasificacion.selected = 'Comedia';
+      },
+
+      enviar: function() {
+        console.log('estoy enviando...');
+        this.$.form.submit();
+      },
+      recibidaRespuesta: function() {
+        console.log('respuesta recibida');
+        this.fire('enviado-formulario');
+        this.$.form.reset();
+      }
+    });
+  })();
+  </script>
+</dom-module>

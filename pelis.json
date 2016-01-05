@@ -1,0 +1,137 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "nombre": "El sexto sentido",
+      "director": "M. Night Shyamalan",
+      "clasificacion": "Drama",
+      "pais": "United States"
+    },
+    {
+      "id": 2,
+      "nombre": "Pulp Fiction",
+      "director": "Tarantino",
+      "clasificacion": "Acción",
+      "pais": "United States"
+    },
+    {
+      "id": 3,
+      "nombre": "Todo Sobre Mi Madre",
+      "director": "Almodobar",
+      "clasificacion": "Drama",
+      "pais": "Spain"
+    },
+    {
+      "id": 4,
+      "nombre": "300",
+      "director": "Zack Snyder",
+      "clasificacion": "Acción",
+      "pais": "United States"
+    },
+    {
+      "id": 5,
+      "nombre": "El silencio de los corderos",
+      "director": "Jonathan Demme",
+      "clasificacion": "Drama",
+      "pais": "United States"
+    },
+    {
+      "id": 6,
+      "nombre": "Forest Gump",
+      "director": "Robert Zemeckis",
+      "clasificacion": "Comedia",
+      "pais": "United States"
+    },
+    {
+      "id": 7,
+      "nombre": "Las Hurdes",
+      "director": "Luis Buñuel",
+      "clasificacion": "Documental",
+      "pais": "Spain"
+    },
+    {
+      "nombre": "pdpdpdpd",
+      "director": "lallalalal",
+      "id": 8
+    },
+    {
+      "nombre": "Miguel",
+      "director": "Miguel director",
+      "id": 9
+    },
+    {
+      "nombre": "Fede",
+      "director": "Fede dir",
+      "id": 10
+    },
+    {
+      "nombre": "kk",
+      "director": "kkkk",
+      "id": 11
+    },
+    {
+      "nombre": "",
+      "director": "",
+      "id": 12
+    },
+    {
+      "nombre": "yyyyyyy",
+      "director": "qqqqqq",
+      "id": 13
+    },
+    {
+      "nombre": "lalalalaaaaaa",
+      "director": "rererere",
+      "id": 14
+    },
+    {
+      "nombre": "lslslasdsadasd",
+      "director": "asassafsadf sd",
+      "id": 15
+    },
+    {
+      "nombre": "papap",
+      "director": "ppppp",
+      "id": 16
+    },
+    {
+      "nombre": "",
+      "director": "",
+      "id": 17
+    },
+    {
+      "nombre": "Torrente",
+      "director": "Segura",
+      "id": 18
+    },
+    {
+      "nombre": "",
+      "director": "",
+      "id": 19
+    },
+    {
+      "nombre": "llsdsdfsf",
+      "director": "sdfsdfsdd",
+      "clasificacion": "Documental",
+      "id": 20
+    }
+  ],
+  "clasificaciones": [
+    {
+      "nombre": "Drama",
+      "id": 1
+    },
+    {
+      "nombre": "Comedia",
+      "id": 2
+    },
+    {
+      "nombre": "Documental",
+      "id": 3
+    },
+    {
+      "nombre": "Acción",
+      "id": 4
+    }
+  ]
+}

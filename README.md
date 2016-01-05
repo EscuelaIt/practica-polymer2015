@@ -1,3 +1,9 @@
+# Práctica del curso de Polymer 2015 de EscuelaIT
+
+> Realizamos varios componentes según lo solicitado en el enunciado de la práctica. Basamos el desarrollo en el Polymer Starter Kit.
+
+A continuación tienes el README.md predeterminado de los proyectos que inicias con Polymer Starter Kit.
+
 ![](https://cloud.githubusercontent.com/assets/110953/7877439/6a69d03e-0590-11e5-9fac-c614246606de.png)
 ## Polymer Starter Kit
 

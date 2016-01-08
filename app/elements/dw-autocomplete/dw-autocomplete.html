@@ -1,0 +1,105 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="dw-autocomplete">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      #campobuscar{
+        height: 20px;
+        font-size: 1em;
+        padding-left: 10px;
+        border-radius: 3px;
+        border: 1px solid #bbb;
+      }
+      #resultados{
+        background-color: white;
+        line-height: 20px;
+        border-radius: 3px;
+        box-shadow: 0px 2px 6px #ccc;
+        padding: 10px 2px;
+        max-width: 250px;
+        min-width: 150px;
+      }
+    </style>
+    <iron-ajax
+    auto
+    url="https://restcountries.eu/rest/v1/name/{{key}}"
+    last-response="{{paises}}"
+    debounce-duration="500"
+    on-response="mostrar"
+    on-error="gestionError"
+    ></iron-ajax>
+    <div>
+      Buscar: <input type="text" value="{{key::input}}" on-tap="gestionFoco" id="campobuscar">
+    </div>
+    <div hidden="{{!paises.length}}">
+      Seleccionado: <span>{{countrySelected}}</span>
+      <input type="hidden" name="{{fieldName}}" value="" id="hiddenfield">
+    </div>
+    <iron-dropdown id="resultados" vertical-offset="30">
+      <div class="dropdown-content">
+        <dw-country-list countries="{{paises}}" on-select="marcar"></dw-country-list>
+      </div>
+    </iron-dropdown>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'dw-autocomplete',
+
+      properties: {
+        paises: {
+          type: Array,
+          value: function(){ return [] }
+        },
+        countrySelected: {
+          type: String,
+          value: ''
+        },
+        fieldName: {
+          type: String,
+          value: 'pais'
+        }
+      },
+
+      mostrar: function(){
+        this.$.resultados.opened = true;
+        console.log('recibido', this.paises)
+      },
+      gestionError: function(e, ir){
+        console.log(e, ir);
+        console.log(ir.request.status);
+        this.$.resultados.opened = false;
+      },
+      marcar: function(e, data){
+        console.log('Estoy en dw-autocomplete ', data);
+        this.countrySelected = data.name;
+        this.$.resultados.opened = false;
+        this.$.hiddenfield.value = data.name;
+      },
+      gestionFoco: function(){
+        if (this.paises.length > 0) {
+          var res = this.$.resultados;
+          setTimeout(function(){
+            res.opened = true;
+          }, 100);
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>

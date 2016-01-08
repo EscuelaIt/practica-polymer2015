@@ -114,6 +114,26 @@
       "director": "sdfsdfsdd",
       "clasificacion": "Documental",
       "id": 20
+    },
+    {
+      "nombre": "algo",
+      "director": "direalgo",
+      "clasificacion": "Comedia",
+      "id": 21
+    },
+    {
+      "nombre": "otro",
+      "director": "optrodddd",
+      "clasificacion": "Comedia",
+      "pais": "",
+      "id": 22
+    },
+    {
+      "nombre": "eeeee",
+      "director": "rrrrrr",
+      "clasificacion": "Documental",
+      "pais": "Argentina",
+      "id": 23
     }
   ],
   "clasificaciones": [

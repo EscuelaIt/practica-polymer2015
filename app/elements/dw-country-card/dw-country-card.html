@@ -1,0 +1,64 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="dw-country-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      dw-flagsprites{
+        margin-right: 8px;
+      }
+      paper-icon-item{
+        --paper-item-icon-width: 40px;
+        --paper-icon-item:{
+          padding: 2px 10px;
+        }
+      }
+    </style>
+
+
+
+    <paper-icon-item on-tap="elemSelec">
+      <dw-flagsprites code="{{data.alpha2Code}}" item-icon></dw-flagsprites>
+      <paper-item-body two-line>
+        <div>{{data.name}}</div>
+        <div secondary>{{data.capital}}</div>
+      </paper-item-body>
+    </paper-icon-item>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'dw-country-card',
+
+      properties: {
+        data: {
+          type: Object,
+          observer: 'cambioData'
+        }
+      },
+      elemSelec: function() {
+        console.log('has seleccionado', this.data);
+        this.fire('select', this.data);
+      },
+      cambioData: function(){
+        //console.log(this.data.alpha2Code.toLowerCase());
+        this.set('data.alpha2Code', this.data.alpha2Code.toLowerCase());
+      }
+    });
+  })();
+  </script>
+</dom-module>

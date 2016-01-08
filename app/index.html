@@ -120,6 +120,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
+
+              <paper-material elevation="1">
+                <dw-autocomplete></dw-autocomplete>
+                <p>
+                  <dw-country-card data='{"name": "España", "capital": "Madrid", "alpha2Code": "es"}'></dw-country-card>
+                </p>
+              </paper-material>
+
               <paper-material elevation="1">
                 <dw-movies-form on-enviado-formulario="enviadoInsercion"></dw-movies-form>
               </paper-material>
